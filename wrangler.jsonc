@@ -3,10 +3,23 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "famac-mcp",
 	"main": "src/index.ts",
-	"compatibility_date": "2026-11-04",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"vars": {
+		"FAMAC_BASE": "https://api.famacweb.no/api/v2/"
+	},
+	"kv_namespaces": [
+  	{ "binding": "SNAPSHOTS", "id": "974768901ece4ff8bf54441b06694b86" }
+	],
+	"triggers": {
+		"crons": [
+			"0 3 * * *"
+		]
+	},
 	"observability": {
 		"enabled": true
 	},
